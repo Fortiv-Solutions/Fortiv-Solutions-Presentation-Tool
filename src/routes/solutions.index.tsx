@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { TopNav } from "@/components/TopNav";
-import { SiteFooter } from "@/components/SiteFooter";
+
 import { solutions } from "@/lib/content";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 
@@ -18,9 +17,7 @@ export const Route = createFileRoute("/solutions/")({
 
 function SolutionsPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <TopNav />
-      <main className="flex-1">
+    <>
         <section className="border-b border-hairline bg-gradient-soft">
           <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
             <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-brand">
@@ -94,8 +91,6 @@ function SolutionsPage() {
             ))}
           </div>
         </section>
-      </main>
-      <SiteFooter />
-    </div>
+    </>
   );
 }

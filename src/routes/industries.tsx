@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TopNav } from "@/components/TopNav";
-import { SiteFooter } from "@/components/SiteFooter";
+
 import { industries } from "@/lib/content";
 import { Building2, Scale, PartyPopper, HeartPulse, Factory, ArrowRight } from "lucide-react";
 
@@ -26,9 +25,7 @@ export const Route = createFileRoute("/industries")({
 
 function IndustriesPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <TopNav />
-      <main className="flex-1">
+    <>
         <section className="border-b border-hairline bg-gradient-soft">
           <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
             <div className="text-xs font-medium uppercase tracking-[0.18em] text-brand">Industries</div>
@@ -78,8 +75,6 @@ function IndustriesPage() {
             <h3 className="mt-3 font-display text-2xl font-semibold">Full industry deep-dives, AI agent breakdowns, pricing tiers, and case studies arriving next.</h3>
           </div>
         </section>
-      </main>
-      <SiteFooter />
-    </div>
+    </>
   );
 }

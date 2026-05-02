@@ -1,6 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { TopNav } from "@/components/TopNav";
-import { SiteFooter } from "@/components/SiteFooter";
+
 import { solutions, BOOK_CALL_URL } from "@/lib/content";
 import { ArrowRight, Play, ArrowLeft, Check } from "lucide-react";
 
@@ -19,9 +18,8 @@ export const Route = createFileRoute("/solutions/$solutionId")({
     ],
   }),
   notFoundComponent: () => (
-    <div className="flex min-h-screen flex-col bg-background">
-      <TopNav />
-      <div className="flex flex-1 items-center justify-center px-6">
+    <>
+      <div className="flex flex-1 items-center justify-center px-6 py-20">
         <div className="text-center">
           <h1 className="font-display text-3xl font-semibold">Solution not found</h1>
           <Link to="/solutions" className="mt-4 inline-block text-brand hover:underline">
@@ -29,8 +27,7 @@ export const Route = createFileRoute("/solutions/$solutionId")({
           </Link>
         </div>
       </div>
-      <SiteFooter />
-    </div>
+    </>
   ),
   component: SolutionDetail,
 });
@@ -39,9 +36,7 @@ function SolutionDetail() {
   const { solution } = Route.useLoaderData();
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <TopNav />
-      <main className="flex-1">
+    <>
         {/* Header */}
         <section className="border-b border-hairline bg-gradient-soft">
           <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
@@ -200,8 +195,6 @@ function SolutionDetail() {
             </div>
           </div>
         </section>
-      </main>
-      <SiteFooter />
-    </div>
+    </>
   );
 }
