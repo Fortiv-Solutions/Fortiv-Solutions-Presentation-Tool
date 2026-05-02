@@ -1,4 +1,4 @@
-import { Outlet, createRootRoute, HeadContent, Link, Scripts } from "@tanstack/react-router";
+import { Outlet, createRootRoute, HeadContent, Link, Scripts, useRouterState } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
 import { SideNav } from "@/components/SideNav";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -6,10 +6,13 @@ import { FortivLogo } from "@/components/FortivLogo";
 import { BOOK_CALL_URL } from "@/lib/content";
 
 function Layout({ children }: { children: React.ReactNode }) {
+  const router = useRouterState();
+  const isHome = router.location.pathname === "/";
+
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex h-screen overflow-hidden bg-background">
       <SideNav />
-      <div className="flex flex-1 flex-col min-w-0">
+      <div className="flex flex-1 flex-col min-w-0 overflow-hidden">
         {/* Mobile Top Bar */}
         <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between border-b border-hairline/60 bg-background/80 px-6 backdrop-blur-xl md:hidden">
           <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
@@ -25,10 +28,11 @@ function Layout({ children }: { children: React.ReactNode }) {
           </a>
         </header>
         
-        <main className="flex-1">
+        <main className="flex-1 h-full overflow-hidden">
           {children}
+          {/* Footer shown on all pages except home (home has its own last section) */}
+          {!isHome && <SiteFooter />}
         </main>
-        <SiteFooter />
       </div>
     </div>
   );

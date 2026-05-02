@@ -1,11 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-
-import { WelcomeHero } from "@/components/welcome/WelcomeHero";
-import { StatsSection } from "@/components/welcome/StatsSection";
-import { IntegrationsSection } from "@/components/welcome/IntegrationsSection";
-import { FortivCoreSection } from "@/components/welcome/FortivCoreSection";
-import { CapabilitiesSection } from "@/components/welcome/CapabilitiesSection";
-import { CtaBridgeSection } from "@/components/welcome/CtaBridgeSection";
+import { HomeScrollSections } from "@/components/welcome/HomeScrollSections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,14 +14,5 @@ export const Route = createFileRoute("/")({
 });
 
 function WelcomePage() {
-  return (
-    <>
-        <WelcomeHero />
-        <StatsSection />
-        <IntegrationsSection />
-        <FortivCoreSection />
-        <CapabilitiesSection />
-        <CtaBridgeSection />
-    </>
-  );
+  return <HomeScrollSections />;
 }

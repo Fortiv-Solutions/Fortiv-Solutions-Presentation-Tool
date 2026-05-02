@@ -221,6 +221,15 @@
   }
   .animate-fade-up { animation: fade-up 0.6s var(--transition-smooth) both; }
 
+  /* Hide scrollbar but keep scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Slide content scaling for present mode */
   .slide-content { font-family: var(--font-sans); }
 }
