@@ -15,7 +15,7 @@ export function WelcomeHero() {
           </div>
 
           <h1 className="mt-8 max-w-4xl text-balance font-display text-5xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-7xl">
-            We don't just transform —{" "}
+            We don't just transform <br className="hidden md:block" />
             <span className="bg-gradient-brand bg-clip-text text-transparent">we rewire how business works.</span>
           </h1>
 

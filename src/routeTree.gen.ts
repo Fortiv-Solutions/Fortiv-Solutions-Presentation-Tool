@@ -13,8 +13,10 @@ import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as SolutionsSolutionIdRouteImport } from './routes/solutions.$solutionId'
 import { Route as PresentSolutionIdRouteImport } from './routes/present.$solutionId'
+import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
 
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
@@ -36,6 +38,11 @@ const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => SolutionsRoute,
 } as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => IndustriesRoute,
+} as any)
 const SolutionsSolutionIdRoute = SolutionsSolutionIdRouteImport.update({
   id: '/$solutionId',
   path: '/$solutionId',
@@ -46,29 +53,39 @@ const PresentSolutionIdRoute = PresentSolutionIdRouteImport.update({
   path: '/present/$solutionId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesIndustryIdRoute = IndustriesIndustryIdRouteImport.update({
+  id: '/$industryId',
+  path: '/$industryId',
+  getParentRoute: () => IndustriesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/industries': typeof IndustriesRoute
+  '/industries': typeof IndustriesRouteWithChildren
   '/solutions': typeof SolutionsRouteWithChildren
+  '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/present/$solutionId': typeof PresentSolutionIdRoute
   '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/industries': typeof IndustriesRoute
+  '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/present/$solutionId': typeof PresentSolutionIdRoute
   '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
+  '/industries': typeof IndustriesIndexRoute
   '/solutions': typeof SolutionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/industries': typeof IndustriesRoute
+  '/industries': typeof IndustriesRouteWithChildren
   '/solutions': typeof SolutionsRouteWithChildren
+  '/industries/$industryId': typeof IndustriesIndustryIdRoute
   '/present/$solutionId': typeof PresentSolutionIdRoute
   '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRouteTypes {
@@ -77,29 +94,34 @@ export interface FileRouteTypes {
     | '/'
     | '/industries'
     | '/solutions'
+    | '/industries/$industryId'
     | '/present/$solutionId'
     | '/solutions/$solutionId'
+    | '/industries/'
     | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/industries'
+    | '/industries/$industryId'
     | '/present/$solutionId'
     | '/solutions/$solutionId'
+    | '/industries'
     | '/solutions'
   id:
     | '__root__'
     | '/'
     | '/industries'
     | '/solutions'
+    | '/industries/$industryId'
     | '/present/$solutionId'
     | '/solutions/$solutionId'
+    | '/industries/'
     | '/solutions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  IndustriesRoute: typeof IndustriesRoute
+  IndustriesRoute: typeof IndustriesRouteWithChildren
   SolutionsRoute: typeof SolutionsRouteWithChildren
   PresentSolutionIdRoute: typeof PresentSolutionIdRoute
 }
@@ -134,6 +156,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsIndexRouteImport
       parentRoute: typeof SolutionsRoute
     }
+    '/industries/': {
+      id: '/industries/'
+      path: '/'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
     '/solutions/$solutionId': {
       id: '/solutions/$solutionId'
       path: '/$solutionId'
@@ -148,8 +177,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PresentSolutionIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/$industryId': {
+      id: '/industries/$industryId'
+      path: '/$industryId'
+      fullPath: '/industries/$industryId'
+      preLoaderRoute: typeof IndustriesIndustryIdRouteImport
+      parentRoute: typeof IndustriesRoute
+    }
   }
 }
+
+interface IndustriesRouteChildren {
+  IndustriesIndustryIdRoute: typeof IndustriesIndustryIdRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+}
+
+const IndustriesRouteChildren: IndustriesRouteChildren = {
+  IndustriesIndustryIdRoute: IndustriesIndustryIdRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+}
+
+const IndustriesRouteWithChildren = IndustriesRoute._addFileChildren(
+  IndustriesRouteChildren,
+)
 
 interface SolutionsRouteChildren {
   SolutionsSolutionIdRoute: typeof SolutionsSolutionIdRoute
@@ -167,7 +217,7 @@ const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  IndustriesRoute: IndustriesRoute,
+  IndustriesRoute: IndustriesRouteWithChildren,
   SolutionsRoute: SolutionsRouteWithChildren,
   PresentSolutionIdRoute: PresentSolutionIdRoute,
 }

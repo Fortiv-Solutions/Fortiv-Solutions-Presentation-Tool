@@ -1,7 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { FortivLogo } from "./FortivLogo";
-import { BOOK_CALL_URL } from "@/lib/content";
-import { ArrowUpRight } from "lucide-react";
+import { BOOK_CALL_URL, solutions, industries } from "@/lib/content";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
+import * as HoverCard from "@radix-ui/react-hover-card";
 
 export function SideNav() {
   const path = useRouterState({ select: (s) => s.location.pathname });
@@ -11,17 +12,17 @@ export function SideNav() {
 
   return (
     <aside className="sticky top-0 hidden h-screen w-64 flex-col border-r border-hairline/60 bg-surface/30 backdrop-blur-xl md:flex">
-      <div className="flex h-16 shrink-0 items-center px-6">
-        <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-          <FortivLogo className="h-8 w-auto" />
+      <div className="flex shrink-0 items-center px-6 py-7 border-b border-hairline/30">
+        <Link to="/" className="flex items-center transition-transform duration-300 hover:opacity-80">
+          <FortivLogo className="h-10 w-auto object-contain" />
         </Link>
       </div>
 
       <div className="flex flex-1 flex-col justify-between overflow-y-auto px-4 py-6">
         <nav className="flex flex-col gap-2">
           <NavLink to="/" label="Welcome" active={isActive("/", true)} />
-          <NavLink to="/solutions" label="Solutions" active={isActive("/solutions")} />
-          <NavLink to="/industries" label="Industries" active={isActive("/industries")} />
+          <SolutionsHoverLink active={isActive("/solutions")} />
+          <IndustriesHoverLink active={isActive("/industries")} />
         </nav>
 
         <div className="mt-8 flex flex-col gap-4">
@@ -61,5 +62,141 @@ function NavLink({ to, label, active }: { to: "/" | "/solutions" | "/industries"
       )}
       {label}
     </Link>
+  );
+}
+
+function SolutionsHoverLink({ active }: { active: boolean }) {
+  return (
+    <HoverCard.Root openDelay={50} closeDelay={150}>
+      <HoverCard.Trigger asChild>
+        <Link
+          to="/solutions"
+          className={`group relative flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium transition-all ${
+            active 
+              ? "bg-brand/10 text-brand" 
+              : "text-muted-foreground hover:bg-surface hover:text-foreground"
+          }`}
+        >
+          <div className="flex items-center">
+            {active && (
+              <span className="absolute left-0 top-1/2 h-1/2 w-[3px] -translate-y-1/2 rounded-r-full bg-brand" />
+            )}
+            <span>Solutions</span>
+          </div>
+          <ChevronRight className="h-4 w-4 opacity-40 transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      </HoverCard.Trigger>
+      
+      <HoverCard.Portal>
+        <HoverCard.Content 
+          side="right" 
+          align="start" 
+          alignOffset={-24}
+          sideOffset={20}
+          className="z-50 w-[600px] rounded-3xl border border-hairline/60 bg-background/95 p-4 shadow-elegant backdrop-blur-xl animate-in fade-in zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=closed]:zoom-out-95"
+        >
+          <div className="flex flex-col">
+            <h4 className="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+              Autonomous Systems
+            </h4>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+              {solutions.map((s) => (
+                <Link
+                  key={s.id}
+                  to="/solutions/$solutionId"
+                  params={{ solutionId: s.id }}
+                  className="group/item flex flex-col rounded-2xl px-3 py-2.5 transition-colors hover:bg-surface"
+                >
+                  <span className="font-medium text-foreground transition-colors group-hover/item:text-brand">
+                    {s.name}
+                  </span>
+                  <span className="mt-0.5 line-clamp-1 text-xs text-muted-foreground">
+                    {s.fullTitle}
+                  </span>
+                </Link>
+              ))}
+            </div>
+            
+            <div className="mt-3 border-t border-hairline/60 px-3 pt-3 pb-1">
+              <Link
+                to="/solutions"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-brand hover:underline"
+              >
+                View all solutions
+                <ChevronRight className="h-3 w-3" />
+              </Link>
+            </div>
+          </div>
+        </HoverCard.Content>
+      </HoverCard.Portal>
+    </HoverCard.Root>
+  );
+}
+
+function IndustriesHoverLink({ active }: { active: boolean }) {
+  return (
+    <HoverCard.Root openDelay={50} closeDelay={150}>
+      <HoverCard.Trigger asChild>
+        <Link
+          to="/industries"
+          className={`group relative flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium transition-all ${
+            active 
+              ? "bg-brand/10 text-brand" 
+              : "text-muted-foreground hover:bg-surface hover:text-foreground"
+          }`}
+        >
+          <div className="flex items-center">
+            {active && (
+              <span className="absolute left-0 top-1/2 h-1/2 w-[3px] -translate-y-1/2 rounded-r-full bg-brand" />
+            )}
+            <span>Industries</span>
+          </div>
+          <ChevronRight className="h-4 w-4 opacity-40 transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      </HoverCard.Trigger>
+      
+      <HoverCard.Portal>
+        <HoverCard.Content 
+          side="right" 
+          align="start" 
+          alignOffset={-24}
+          sideOffset={20}
+          className="z-50 w-[600px] rounded-3xl border border-hairline/60 bg-background/95 p-4 shadow-elegant backdrop-blur-xl animate-in fade-in zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=closed]:zoom-out-95"
+        >
+          <div className="flex flex-col">
+            <h4 className="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+              Sectors We Serve
+            </h4>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+              {industries.map((ind) => (
+                <Link
+                  key={ind.id}
+                  to="/industries/$industryId"
+                  params={{ industryId: ind.id }}
+                  className="group/item flex flex-col rounded-2xl px-3 py-2.5 transition-colors hover:bg-surface"
+                >
+                  <span className="font-medium text-foreground transition-colors group-hover/item:text-brand">
+                    {ind.name}
+                  </span>
+                  <span className="mt-0.5 line-clamp-1 text-xs text-muted-foreground">
+                    {ind.focus}
+                  </span>
+                </Link>
+              ))}
+            </div>
+            
+            <div className="mt-3 border-t border-hairline/60 px-3 pt-3 pb-1">
+              <Link
+                to="/industries"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-brand hover:underline"
+              >
+                Explore all industries
+                <ChevronRight className="h-3 w-3" />
+              </Link>
+            </div>
+          </div>
+        </HoverCard.Content>
+      </HoverCard.Portal>
+    </HoverCard.Root>
   );
 }
