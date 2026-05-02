@@ -9,38 +9,117 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
+import { Route as SolutionsSolutionIdRouteImport } from './routes/solutions.$solutionId'
+import { Route as PresentSolutionIdRouteImport } from './routes/present.$solutionId'
 
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SolutionsRoute,
+} as any)
+const SolutionsSolutionIdRoute = SolutionsSolutionIdRouteImport.update({
+  id: '/$solutionId',
+  path: '/$solutionId',
+  getParentRoute: () => SolutionsRoute,
+} as any)
+const PresentSolutionIdRoute = PresentSolutionIdRouteImport.update({
+  id: '/present/$solutionId',
+  path: '/present/$solutionId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/industries': typeof IndustriesRoute
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/present/$solutionId': typeof PresentSolutionIdRoute
+  '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/industries': typeof IndustriesRoute
+  '/present/$solutionId': typeof PresentSolutionIdRoute
+  '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
+  '/solutions': typeof SolutionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/industries': typeof IndustriesRoute
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/present/$solutionId': typeof PresentSolutionIdRoute
+  '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/industries'
+    | '/solutions'
+    | '/present/$solutionId'
+    | '/solutions/$solutionId'
+    | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/industries'
+    | '/present/$solutionId'
+    | '/solutions/$solutionId'
+    | '/solutions'
+  id:
+    | '__root__'
+    | '/'
+    | '/industries'
+    | '/solutions'
+    | '/present/$solutionId'
+    | '/solutions/$solutionId'
+    | '/solutions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  IndustriesRoute: typeof IndustriesRoute
+  SolutionsRoute: typeof SolutionsRouteWithChildren
+  PresentSolutionIdRoute: typeof PresentSolutionIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +127,49 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions/': {
+      id: '/solutions/'
+      path: '/'
+      fullPath: '/solutions/'
+      preLoaderRoute: typeof SolutionsIndexRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
+    '/solutions/$solutionId': {
+      id: '/solutions/$solutionId'
+      path: '/$solutionId'
+      fullPath: '/solutions/$solutionId'
+      preLoaderRoute: typeof SolutionsSolutionIdRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
+    '/present/$solutionId': {
+      id: '/present/$solutionId'
+      path: '/present/$solutionId'
+      fullPath: '/present/$solutionId'
+      preLoaderRoute: typeof PresentSolutionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface SolutionsRouteChildren {
+  SolutionsSolutionIdRoute: typeof SolutionsSolutionIdRoute
+  SolutionsIndexRoute: typeof SolutionsIndexRoute
+}
+
+const SolutionsRouteChildren: SolutionsRouteChildren = {
+  SolutionsSolutionIdRoute: SolutionsSolutionIdRoute,
+  SolutionsIndexRoute: SolutionsIndexRoute,
+}
+
+const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
+  SolutionsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  IndustriesRoute: IndustriesRoute,
+  SolutionsRoute: SolutionsRouteWithChildren,
+  PresentSolutionIdRoute: PresentSolutionIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
