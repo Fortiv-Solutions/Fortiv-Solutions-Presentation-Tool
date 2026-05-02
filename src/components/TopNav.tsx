@@ -3,14 +3,11 @@ import { FortivLogo } from "./FortivLogo";
 import { BOOK_CALL_URL } from "@/lib/content";
 import { ArrowUpRight } from "lucide-react";
 
-const links = [
-  { to: "/", label: "Welcome", exact: true },
-  { to: "/solutions", label: "Solutions" },
-  { to: "/industries", label: "Industries" },
-] as const;
-
 export function TopNav() {
   const path = useRouterState({ select: (s) => s.location.pathname });
+
+  const isActive = (to: string, exact = false) =>
+    exact ? path === to : path.startsWith(to);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-hairline/60 bg-background/80 backdrop-blur-xl">
@@ -20,25 +17,9 @@ export function TopNav() {
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
-          {links.map((l) => {
-            const active = l.exact ? path === l.to : path.startsWith(l.to);
-            return (
-              <Link
-                key={l.to}
-                to={l.to}
-                className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  active
-                    ? "text-brand"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {l.label}
-                {active && (
-                  <span className="absolute inset-x-3 -bottom-[1px] h-[2px] rounded-full bg-brand" />
-                )}
-              </Link>
-            );
-          })}
+          <NavLink to="/" label="Welcome" active={isActive("/", true)} />
+          <NavLink to="/solutions" label="Solutions" active={isActive("/solutions")} />
+          <NavLink to="/industries" label="Industries" active={isActive("/industries")} />
         </nav>
 
         <a
@@ -52,5 +33,19 @@ export function TopNav() {
         </a>
       </div>
     </header>
+  );
+}
+
+function NavLink({ to, label, active }: { to: "/" | "/solutions" | "/industries"; label: string; active: boolean }) {
+  return (
+    <Link
+      to={to}
+      className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+        active ? "text-brand" : "text-muted-foreground hover:text-foreground"
+      }`}
+    >
+      {label}
+      {active && <span className="absolute inset-x-3 -bottom-[1px] h-[2px] rounded-full bg-brand" />}
+    </Link>
   );
 }
