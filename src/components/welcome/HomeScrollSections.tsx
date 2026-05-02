@@ -3,18 +3,26 @@ import { WelcomeHero } from "./WelcomeHero";
 import { StatsSection } from "./StatsSection";
 import { IntegrationsSection } from "./IntegrationsSection";
 import { FortivCoreSection } from "./FortivCoreSection";
-import { CapabilitiesSection } from "./CapabilitiesSection";
-import { CtaBridgeSection } from "./CtaBridgeSection";
-import { SiteFooter } from "@/components/SiteFooter";
+import { ProductSuiteSection } from "./ProductSuiteSection";
+import { IndustriesSection } from "./IndustriesSection";
+import { WhyFortivSection } from "./WhyFortivSection";
+import { ImpactMetricsSection } from "./ImpactMetricsSection";
+import { IntegrationsGridSection } from "./IntegrationsGridSection";
+import { TestimonialsSection } from "./TestimonialsSection";
+import { CtaFooterSection } from "./CtaFooterSection";
 
 const SECTIONS = [
   { id: "hero", label: "Home", Component: WelcomeHero, fullHeight: true },
-  { id: "stats", label: "Results", Component: StatsSection, fullHeight: false },
-  { id: "integrations", label: "Integrations", Component: IntegrationsSection, fullHeight: false },
-  { id: "core", label: "How We Work", Component: FortivCoreSection, fullHeight: false },
-  { id: "capabilities", label: "Capabilities", Component: CapabilitiesSection, fullHeight: false },
-  { id: "differentiators", label: "Why Fortiv", Component: CtaBridgeSection, fullHeight: false },
-  { id: "footer", label: "Contact", Component: SiteFooter, fullHeight: false },
+  { id: "stats", label: "Overview", Component: StatsSection, fullHeight: false },
+  { id: "problem", label: "Problem", Component: IntegrationsSection, fullHeight: false },
+  { id: "core", label: "Methodology", Component: FortivCoreSection, fullHeight: false },
+  { id: "products", label: "Product Suite", Component: ProductSuiteSection, fullHeight: false },
+  { id: "industries", label: "Industries", Component: IndustriesSection, fullHeight: false },
+  { id: "differentiators", label: "Why Fortiv", Component: WhyFortivSection, fullHeight: false },
+  { id: "impact", label: "Impact Metrics", Component: ImpactMetricsSection, fullHeight: false },
+  { id: "stack", label: "Integrations", Component: IntegrationsGridSection, fullHeight: false },
+  { id: "testimonials", label: "Testimonials", Component: TestimonialsSection, fullHeight: false },
+  { id: "cta", label: "Book Audit", Component: CtaFooterSection, fullHeight: false },
 ];
 
 export function HomeScrollSections() {
