@@ -1,4 +1,4 @@
-import { Mail, Phone, Globe, Calendar, Briefcase } from "lucide-react";
+import { Mail, Phone, Globe, Briefcase } from "lucide-react";
 
 export function CtaFooterSection() {
   return (
@@ -20,14 +20,17 @@ export function CtaFooterSection() {
         </h2>
         
         <p className="mx-auto mt-6 max-w-2xl text-lg italic text-muted-foreground md:text-xl">
-          Book a Free AI Audit — No commitment. No setup fees. Just results.
+          Reach out to our team — We'll map your workflows and deploy AI that delivers results.
         </p>
 
-        <button className="group relative mt-8 inline-flex items-center justify-center overflow-hidden rounded-xl bg-brand px-8 py-4 font-display text-lg font-bold text-white shadow-lg transition-all hover:scale-105 hover:bg-brand/90 hover:shadow-brand/40">
+        <a
+          href="mailto:info@fortivsolutions.in"
+          className="group relative mt-8 inline-flex items-center justify-center overflow-hidden rounded-xl bg-brand px-8 py-4 font-display text-lg font-bold text-white shadow-lg transition-all hover:scale-105 hover:bg-brand/90 hover:shadow-brand/40"
+        >
           <span className="absolute inset-0 bg-white/20 opacity-0 transition-opacity group-hover:opacity-100" />
-          <Calendar className="mr-3 h-5 w-5" />
-          Book Free AI Audit
-        </button>
+          <Mail className="mr-3 h-5 w-5" />
+          Contact Us
+        </a>
 
         {/* Contact Grid */}
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

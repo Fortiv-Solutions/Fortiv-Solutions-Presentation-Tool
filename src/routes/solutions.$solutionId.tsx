@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
-import { solutions, BOOK_CALL_URL } from "@/lib/content";
+import { solutions } from "@/lib/content";
 import { ArrowRight, Play, ArrowLeft, Check } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/$solutionId")({
@@ -66,15 +66,6 @@ function SolutionDetail() {
                   <Play className="h-3.5 w-3.5 fill-current" />
                   Present
                 </Link>
-                <a
-                  href={BOOK_CALL_URL}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-card px-5 py-2.5 text-sm font-medium hover:border-brand/40 hover:text-brand"
-                >
-                  Book a call
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </a>
               </div>
             </div>
 
@@ -172,7 +163,7 @@ function SolutionDetail() {
               Ready to see {solution.name} in action?
             </h2>
             <p className="mt-3 max-w-xl text-primary-foreground/80">
-              Open the live presentation, or book a 30-minute discovery call.
+              Open the live presentation, or get in touch with our team directly.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -184,12 +175,10 @@ function SolutionDetail() {
                 Launch presentation
               </Link>
               <a
-                href={BOOK_CALL_URL}
-                target="_blank"
-                rel="noreferrer noopener"
+                href="mailto:info@fortivsolutions.in"
                 className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/30 px-5 py-2.5 text-sm font-medium hover:bg-primary-foreground/10"
               >
-                Book a call
+                Contact Us
                 <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>

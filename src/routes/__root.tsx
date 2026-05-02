@@ -3,7 +3,7 @@ import appCss from "../styles.css?url";
 import { SideNav } from "@/components/SideNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FortivLogo } from "@/components/FortivLogo";
-import { BOOK_CALL_URL } from "@/lib/content";
+
 
 function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouterState();
@@ -19,16 +19,14 @@ function Layout({ children }: { children: React.ReactNode }) {
             <FortivLogo className="h-7 w-auto" />
           </Link>
           <a
-            href={BOOK_CALL_URL}
-            target="_blank"
-            rel="noreferrer noopener"
+            href="mailto:info@fortivsolutions.in"
             className="rounded-full bg-foreground px-3 py-1.5 text-xs font-medium text-background"
           >
-            Book Call
+            Contact Us
           </a>
         </header>
         
-        <main className="flex-1 h-full overflow-hidden">
+        <main className="flex-1 h-full overflow-y-auto">
           {children}
           {/* Footer shown on all pages except home (home has its own last section) */}
           {!isHome && <SiteFooter />}

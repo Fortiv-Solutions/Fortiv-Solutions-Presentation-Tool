@@ -1,5 +1,5 @@
 import { FortivLogo } from "./FortivLogo";
-import { BOOK_CALL_URL } from "@/lib/content";
+
 
 export function SiteFooter() {
   return (
@@ -14,12 +14,10 @@ export function SiteFooter() {
           </div>
           <div className="flex flex-col items-start gap-2 md:items-end">
             <a
-              href={BOOK_CALL_URL}
-              target="_blank"
-              rel="noreferrer noopener"
+              href="mailto:info@fortivsolutions.in"
               className="text-sm font-medium text-brand hover:underline"
             >
-              cal.com/fortiv-solutions/30min
+              info@fortivsolutions.in
             </a>
             <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Fortiv Solutions. All rights reserved.</p>
           </div>

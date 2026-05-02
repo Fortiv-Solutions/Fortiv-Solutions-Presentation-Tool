@@ -1,5 +1,5 @@
 import { SlideShell, type SlideProps } from "./SlideShell";
-import { BOOK_CALL_URL } from "@/lib/content";
+
 import { ArrowRight } from "lucide-react";
 
 export function CtaSlide({ solution }: SlideProps) {
@@ -15,16 +15,14 @@ export function CtaSlide({ solution }: SlideProps) {
             <span className="text-primary-foreground/70">for your enterprise.</span>
           </h2>
           <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-primary-foreground/90 md:text-2xl">
-            Schedule a 30-minute technical discovery. We'll map your existing workflows, identify immediate high-ROI automation targets, and demonstrate live capabilities.
+            Schedule a technical discovery with our team. We'll map your existing workflows, identify immediate automation opportunities, and demonstrate live capabilities.
           </p>
           <div className="mt-12 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
             <a
-              href={BOOK_CALL_URL}
-              target="_blank"
-              rel="noreferrer noopener"
+              href="mailto:info@fortivsolutions.in"
               className="group inline-flex items-center gap-3 rounded-full bg-background px-8 py-4 text-lg font-bold text-foreground transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.4)]"
             >
-              Book your technical discovery
+              Contact our team
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand/10 transition-colors group-hover:bg-brand group-hover:text-white">
                 <ArrowRight className="h-4 w-4" />
               </div>

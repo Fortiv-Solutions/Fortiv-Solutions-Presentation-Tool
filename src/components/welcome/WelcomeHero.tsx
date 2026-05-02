@@ -67,10 +67,10 @@ export function WelcomeHero() {
 
           <div className="mt-16 flex flex-col gap-4 sm:flex-row">
             <div className="flex h-12 min-w-[200px] items-center justify-center border border-brand bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-brand/10">
-              No Setup Fees
+              Start Your AI Journey
             </div>
             <div className="flex h-12 min-w-[200px] items-center justify-center border border-brand bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-brand/10">
-              30-Day ROI Guarantee
+              Unlock Immediate Value
             </div>
             <div className="flex h-12 min-w-[200px] items-center justify-center border border-brand bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-brand/10">
               40+ Companies Served

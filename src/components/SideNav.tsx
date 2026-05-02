@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { FortivLogo } from "./FortivLogo";
-import { BOOK_CALL_URL, solutions, industries } from "@/lib/content";
+import { solutions, industries } from "@/lib/content";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import * as HoverCard from "@radix-ui/react-hover-card";
 
@@ -27,17 +27,15 @@ export function SideNav() {
 
         <div className="mt-8 flex flex-col gap-4">
           <div className="rounded-2xl border border-hairline bg-card p-4">
-            <h4 className="font-display text-sm font-semibold text-foreground">Ready to automate?</h4>
+            <h4 className="font-display text-sm font-semibold text-foreground">Get in touch</h4>
             <p className="mt-1 text-xs text-muted-foreground">
-              Book a discovery call to see how we can transform your workflows.
+              Reach out to our team to see how we can transform your workflows.
             </p>
             <a
-              href={BOOK_CALL_URL}
-              target="_blank"
-              rel="noreferrer noopener"
+              href="mailto:info@fortivsolutions.in"
               className="group mt-4 flex w-full items-center justify-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:bg-brand hover:shadow-glow"
             >
-              Book a Call
+              Contact Us
               <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-px group-hover:translate-x-px" />
             </a>
           </div>

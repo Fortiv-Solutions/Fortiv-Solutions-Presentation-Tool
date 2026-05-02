@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, useCallback } from "react";
-import { industries, BOOK_CALL_URL } from "@/lib/content";
+import { industries } from "@/lib/content";
 import { FortivLogo } from "@/components/FortivLogo";
 import { ArrowLeft, ArrowRight, X, Play, CheckCircle2 } from "lucide-react";
 import { SlideShell } from "@/components/present/SlideShell";
@@ -121,13 +121,11 @@ function PresentIndustryView() {
           </button>
         ) : (
           <a
-            href={BOOK_CALL_URL}
-            target="_blank"
-            rel="noreferrer noopener"
+            href="mailto:info@fortivsolutions.in"
             className="inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:shadow-glow"
           >
             <Play className="h-3.5 w-3.5 fill-current" />
-            Book a call
+            Contact Us
           </a>
         )}
       </div>
@@ -231,15 +229,13 @@ function CtaSlide({ industry }: { industry: any }) {
           Ready to scale?
         </h2>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
-          Book a discovery call to explore how our AI systems can transform your {industry.name} workflows.
+          Get in touch to explore how our AI systems can transform your {industry.name} workflows.
         </p>
         <a
-          href={BOOK_CALL_URL}
-          target="_blank"
-          rel="noreferrer noopener"
+          href="mailto:info@fortivsolutions.in"
           className="group mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-medium text-primary-foreground transition-all hover:scale-105 hover:shadow-glow"
         >
-          Book a 30-minute call
+          Contact Us
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </a>
       </div>

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, useCallback } from "react";
-import { solutions, BOOK_CALL_URL } from "@/lib/content";
+import { solutions } from "@/lib/content";
 import { FortivLogo } from "@/components/FortivLogo";
 import { ArrowLeft, ArrowRight, X, Play } from "lucide-react";
 import { TitleSlide } from "@/components/present/TitleSlide";
@@ -139,13 +139,11 @@ function PresentView() {
           </button>
         ) : (
           <a
-            href={BOOK_CALL_URL}
-            target="_blank"
-            rel="noreferrer noopener"
+            href="mailto:info@fortivsolutions.in"
             className="inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:shadow-glow"
           >
             <Play className="h-3.5 w-3.5 fill-current" />
-            Book a call
+            Contact Us
           </a>
         )}
       </div>
