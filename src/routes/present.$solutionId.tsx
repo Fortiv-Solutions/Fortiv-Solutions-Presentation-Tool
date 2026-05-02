@@ -9,6 +9,11 @@ import { FeaturesSlide } from "@/components/present/FeaturesSlide";
 import { WorkflowSlide } from "@/components/present/WorkflowSlide";
 import { ComparisonSlide } from "@/components/present/ComparisonSlide";
 import { MetricsSlide } from "@/components/present/MetricsSlide";
+import { ProblemSlide } from "@/components/present/ProblemSlide";
+import { ArchitectureSlide } from "@/components/present/ArchitectureSlide";
+import { SecuritySlide } from "@/components/present/SecuritySlide";
+import { DeploymentSlide } from "@/components/present/DeploymentSlide";
+import { CaseStudySlide } from "@/components/present/CaseStudySlide";
 import { CtaSlide } from "@/components/present/CtaSlide";
 
 export const Route = createFileRoute("/present/$solutionId")({
@@ -32,11 +37,16 @@ function PresentView() {
 
   const slideComponents = [
     () => <TitleSlide solution={solution} />,
+    () => <ProblemSlide solution={solution} />,
     () => <OverviewSlide solution={solution} />,
+    () => <ArchitectureSlide solution={solution} />,
     () => <MetricsSlide solution={solution} />,
     () => <FeaturesSlide solution={solution} />,
     () => <WorkflowSlide solution={solution} />,
+    () => <SecuritySlide solution={solution} />,
     () => <ComparisonSlide solution={solution} />,
+    () => <DeploymentSlide solution={solution} />,
+    () => <CaseStudySlide solution={solution} />,
     () => <CtaSlide solution={solution} />,
   ];
   const total = slideComponents.length;

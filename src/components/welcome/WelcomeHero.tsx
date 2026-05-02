@@ -3,90 +3,81 @@ import { ArrowRight, Sparkles, Star } from "lucide-react";
 
 export function WelcomeHero() {
   return (
-    <section className="relative overflow-hidden border-b border-hairline">
+    <section className="relative flex min-h-screen items-center overflow-hidden border-b border-hairline">
       <div className="absolute inset-0 bg-gradient-hero" aria-hidden />
       <div className="absolute inset-x-0 top-0 h-[600px] bg-[radial-gradient(circle_at_50%_0%,oklch(0.78_0.10_240/0.25),transparent_60%)]" aria-hidden />
-
-      <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-        <div className="flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-3 py-1.5 text-xs font-medium text-brand">
-            <Sparkles className="h-3.5 w-3.5" />
-            Production-grade AI automation
-          </div>
-
-          <h1 className="mt-8 max-w-4xl text-balance font-display text-5xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-7xl">
-            We don't just transform <br className="hidden md:block" />
-            <span className="bg-gradient-brand bg-clip-text text-transparent">we rewire how business works.</span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-pretty text-lg text-muted-foreground md:text-xl">
-            We deploy production-ready AI systems that eliminate manual bottlenecks
-            and slash operational costs.
-          </p>
-
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link
-              to="/solutions"
-              className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:bg-brand hover:shadow-glow"
-            >
-              Explore Solutions
-              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-            <Link
-              to="/industries"
-              className="inline-flex items-center justify-center gap-1.5 rounded-full border border-hairline bg-background/60 px-6 py-3 text-sm font-medium backdrop-blur transition-colors hover:border-brand/40 hover:text-brand"
-            >
-              View by Industry
-            </Link>
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
-            <span className="rounded-full border border-hairline bg-background/60 px-3 py-1 backdrop-blur">No Setup Fees</span>
-            <span className="rounded-full border border-hairline bg-background/60 px-3 py-1 backdrop-blur">30-Day ROI Guarantee</span>
-          </div>
-
-          <div className="mt-14 flex flex-col items-center gap-5 sm:flex-row sm:gap-8">
-            <AvatarStack />
-            <div className="h-px w-12 bg-hairline sm:h-10 sm:w-px" />
-            <div className="flex items-center gap-3">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 fill-brand text-brand" />
-                ))}
+      
+      {/* Premium abstract glowing orbs */}
+      <div className="absolute right-0 top-1/2 h-[80%] w-[45%] -translate-y-1/2 pointer-events-none overflow-visible hidden lg:block">
+        <div className="absolute right-[10%] top-[10%] h-[500px] w-[500px] rounded-full bg-brand/20 mix-blend-multiply blur-[120px] animate-pulse dark:mix-blend-screen" />
+        <div className="absolute bottom-[10%] right-[30%] h-[400px] w-[400px] rounded-full bg-blue-600/20 mix-blend-multiply blur-[100px] animate-pulse dark:mix-blend-screen" style={{ animationDelay: '2s' }} />
+        
+        {/* Glassmorphism Floating Dashboard Graphic */}
+        <div className="absolute right-[15%] top-1/2 -translate-y-1/2 w-[420px] rounded-2xl border border-brand/20 bg-background/60 p-2 shadow-2xl backdrop-blur-2xl">
+          <div className="flex h-full w-full flex-col rounded-xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-5 dark:from-white/5 dark:to-transparent">
+            {/* Window Controls */}
+            <div className="mb-6 flex gap-2">
+              <div className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+              <div className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
+              <div className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+            </div>
+            
+            {/* Mock Code / Activity */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand/20 text-brand">
+                  <Sparkles className="h-4 w-4" />
+                </div>
+                <div className="h-4 w-32 rounded bg-brand/20" />
               </div>
-              <div className="text-left">
-                <div className="font-display text-base font-semibold tabular-nums">4.7</div>
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Trusted by 40+ companies</div>
+              
+              <div className="space-y-2 pt-2">
+                <div className="h-2 w-full rounded bg-foreground/10" />
+                <div className="h-2 w-5/6 rounded bg-foreground/10" />
+                <div className="h-2 w-4/6 rounded bg-foreground/10" />
+              </div>
+
+              {/* Animated processing block */}
+              <div className="mt-6 flex h-32 items-center justify-center rounded-lg border border-brand/20 bg-brand/5 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand/10 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-6 w-6 rounded-full border-2 border-brand border-t-transparent animate-spin" />
+                  <span className="text-xs font-medium tracking-widest text-brand uppercase">Processing Data</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
-}
 
-function AvatarStack() {
-  const colors = [
-    "from-blue-400 to-blue-600",
-    "from-cyan-400 to-blue-500",
-    "from-indigo-400 to-blue-600",
-    "from-sky-400 to-indigo-500",
-    "from-blue-300 to-cyan-500",
-  ];
-  return (
-    <div className="flex -space-x-2">
-      {colors.map((c, i) => (
-        <div
-          key={i}
-          className={`flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br ${c} ring-2 ring-background`}
-          aria-hidden
-        />
-      ))}
-      <div className="ml-3 flex items-center text-sm text-muted-foreground">
-        <span className="font-medium text-foreground">40+</span>
-        <span className="ml-1.5">companies served</span>
+      <div className="relative mx-auto w-full max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+        <div className="flex flex-col items-start text-left">
+          <div className="inline-flex items-center justify-center bg-brand px-6 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground">
+            AGENTIC AI • AUTOMATION
+          </div>
+
+          <h1 className="mt-10 font-display text-7xl font-bold uppercase leading-[1.05] tracking-tight text-foreground md:text-9xl">
+            FORTIV <br />
+            <span className="text-brand">SOLUTIONS</span>
+          </h1>
+
+          <p className="mt-8 text-xl italic tracking-wide text-muted-foreground md:text-3xl">
+            Transforming Technology into Results
+          </p>
+
+          <div className="mt-16 flex flex-col gap-4 sm:flex-row">
+            <div className="flex h-12 min-w-[200px] items-center justify-center border border-brand bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-brand/10">
+              No Setup Fees
+            </div>
+            <div className="flex h-12 min-w-[200px] items-center justify-center border border-brand bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-brand/10">
+              30-Day ROI Guarantee
+            </div>
+            <div className="flex h-12 min-w-[200px] items-center justify-center border border-brand bg-transparent px-6 text-sm font-medium text-foreground transition-colors hover:bg-brand/10">
+              40+ Companies Served
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
