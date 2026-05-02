@@ -8,11 +8,11 @@ export function StatsSection() {
       <div className="absolute -left-[10%] top-[20%] h-[400px] w-[400px] rounded-full bg-brand/10 mix-blend-multiply blur-[120px] animate-pulse dark:mix-blend-screen" aria-hidden />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-6 lg:px-10">
-        <div className="inline-flex items-center justify-center bg-brand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand mb-4 border border-brand/20">
+        <div className="mb-6 inline-flex items-center justify-center bg-brand px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground">
           Corporate Insight
         </div>
-        <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
-          COMPANY <span className="bg-gradient-brand bg-clip-text text-transparent">OVERVIEW</span>
+        <h2 className="font-display text-4xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          COMPANY <span className="text-brand">OVERVIEW</span>
         </h2>
 
         <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">

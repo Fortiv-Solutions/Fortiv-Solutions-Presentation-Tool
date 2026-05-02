@@ -7,10 +7,13 @@ export function ImpactMetricsSection() {
       <div className="absolute -left-[10%] top-[20%] h-[400px] w-[400px] rounded-full bg-emerald-500/10 mix-blend-multiply blur-[120px] animate-pulse dark:mix-blend-screen" aria-hidden />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-6 lg:px-10">
-        <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
-          ROI & IMPACT <span className="bg-gradient-to-r from-emerald-400 to-cyan-500 bg-clip-text text-transparent">METRICS</span>
+        <div className="mb-6 inline-flex items-center justify-center bg-emerald-500 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground">
+          Impact
+        </div>
+        <h2 className="font-display text-4xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          ROI & IMPACT <span className="text-emerald-500">METRICS</span>
         </h2>
-        <p className="mt-4 text-base italic text-muted-foreground">
+        <p className="mt-6 max-w-3xl text-xl italic tracking-wide text-muted-foreground md:text-2xl">
           Based on data from 40+ enterprise deployments:
         </p>
 

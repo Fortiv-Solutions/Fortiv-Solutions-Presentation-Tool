@@ -23,10 +23,13 @@ export function IntegrationsGridSection() {
       <div className="absolute -right-[10%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-cyan-500/10 mix-blend-multiply blur-[120px] animate-pulse dark:mix-blend-screen" aria-hidden />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-6 lg:px-10">
-        <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
-          200+ INTEGRATIONS — <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">WORKS WITH YOUR STACK</span>
+        <div className="mb-6 inline-flex items-center justify-center bg-cyan-500 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground">
+          Ecosystem
+        </div>
+        <h2 className="font-display text-4xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          200+ INTEGRATIONS — <span className="text-cyan-500">WORKS WITH YOUR STACK</span>
         </h2>
-        <p className="mt-4 text-base italic text-muted-foreground md:text-lg">
+        <p className="mt-6 max-w-3xl text-xl italic tracking-wide text-muted-foreground md:text-2xl">
           Connect your entire tech stack in minutes. No rip-and-replace. No disruption.
         </p>
 

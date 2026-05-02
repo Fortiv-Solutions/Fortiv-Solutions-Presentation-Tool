@@ -7,8 +7,11 @@ export function ProductSuiteSection() {
       <div className="absolute -right-[10%] top-[20%] h-[400px] w-[400px] rounded-full bg-brand/10 mix-blend-multiply blur-[120px] animate-pulse dark:mix-blend-screen" aria-hidden />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-6 lg:px-10">
-        <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
-          OUR PRODUCT <span className="bg-gradient-brand bg-clip-text text-transparent">SUITE</span>
+        <div className="mb-6 inline-flex items-center justify-center bg-brand px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground">
+          Solutions
+        </div>
+        <h2 className="font-display text-4xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          OUR PRODUCT <span className="text-brand">SUITE</span>
         </h2>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">

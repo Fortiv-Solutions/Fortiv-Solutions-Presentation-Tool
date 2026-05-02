@@ -8,13 +8,13 @@ export function IntegrationsSection() {
       <div className="absolute -right-[10%] bottom-[20%] h-[400px] w-[400px] rounded-full bg-cyan-500/10 mix-blend-multiply blur-[120px] animate-pulse dark:mix-blend-screen" aria-hidden />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-6 lg:px-10">
-        <div className="inline-flex items-center justify-center bg-cyan-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-cyan-500 mb-4 border border-cyan-500/20">
+        <div className="mb-6 inline-flex items-center justify-center bg-cyan-500 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground">
           The Challenge
         </div>
-        <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
-          THE PROBLEM WE <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">SOLVE</span>
+        <h2 className="font-display text-4xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          THE PROBLEM WE <span className="text-cyan-500">SOLVE</span>
         </h2>
-        <p className="mt-4 text-lg italic tracking-wide text-muted-foreground md:text-xl max-w-3xl">
+        <p className="mt-6 max-w-3xl text-xl italic tracking-wide text-muted-foreground md:text-2xl">
           Talented operators buried in manual work — zero ROI visibility.
         </p>
 

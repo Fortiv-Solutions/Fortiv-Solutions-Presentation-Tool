@@ -6,13 +6,13 @@ export function FortivCoreSection() {
       <div className="absolute -left-[10%] bottom-[10%] h-[500px] w-[500px] rounded-full bg-brand/10 mix-blend-multiply blur-[120px] animate-pulse dark:mix-blend-screen" aria-hidden />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-6 lg:px-10">
-        <div className="inline-flex items-center justify-center bg-brand/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand mb-4 border border-brand/20">
+        <div className="mb-6 inline-flex items-center justify-center bg-brand px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground">
           The Framework
         </div>
-        <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
-          FORTIV CORE™ — <span className="bg-gradient-brand bg-clip-text text-transparent">OUR 4-STEP METHODOLOGY</span>
+        <h2 className="font-display text-4xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          FORTIV CORE™ — <span className="text-brand">OUR 4-STEP METHODOLOGY</span>
         </h2>
-        <p className="mt-4 text-lg italic tracking-wide text-muted-foreground md:text-xl max-w-4xl">
+        <p className="mt-6 max-w-3xl text-xl italic tracking-wide text-muted-foreground md:text-2xl">
           Our proprietary framework transforms expensive manual operations into highly scalable automated AI pipelines.
         </p>
 

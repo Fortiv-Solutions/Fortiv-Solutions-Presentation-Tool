@@ -11,9 +11,12 @@ export function CtaFooterSection() {
       <div className="relative mx-auto w-full max-w-7xl px-6 py-10 lg:px-10 text-center">
         
         {/* Main CTA */}
-        <h2 className="font-display text-4xl font-bold uppercase tracking-tight text-foreground md:text-6xl lg:text-7xl">
+        <div className="mb-6 inline-flex items-center justify-center bg-brand px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground">
+          Take Action
+        </div>
+        <h2 className="font-display text-4xl font-bold uppercase tracking-tight text-foreground md:text-5xl lg:text-7xl">
           READY TO REWIRE HOW <br className="hidden md:block" />
-          <span className="bg-gradient-brand bg-clip-text text-transparent">YOUR BUSINESS WORKS?</span>
+          <span className="text-brand">YOUR BUSINESS WORKS?</span>
         </h2>
         
         <p className="mx-auto mt-6 max-w-2xl text-lg italic text-muted-foreground md:text-xl">
