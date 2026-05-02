@@ -18,6 +18,49 @@ export interface Solution {
 
 export const solutions: Solution[] = [
   {
+    id: "eventsync",
+    name: "EventSync",
+    category: "Booking & Scheduling",
+    fullTitle: "Enterprise Event Logistics & Autonomous Voice Agent Platform",
+    description:
+      "EventSync automates massive-scale event logistics. From point of registration, the AI orchestrates a multi-channel engagement pipeline — deploying autonomous voice calls and SMS to maximise attendance and execute post-event feedback analysis.",
+    metrics: [
+      { value: "40%", label: "Higher Attendance Rate" },
+      { value: "80%", label: "Automated Confirmations" },
+      { value: "60%", label: "Less Manual Work" },
+    ],
+    features: [
+      { title: "Smart RSVP Management", description: "Capture registrations from forms, websites, WhatsApp — with confirmation and waitlisting." },
+      { title: "AI Voice Calling", description: "AI makes personalised voice calls with reminders and logistics — sounding human." },
+      { title: "Multi-Channel Reminders", description: "Automated reminders via WhatsApp, SMS, and email — timed to reduce no-shows." },
+      { title: "Attendance Prediction", description: "AI predicts attendance from RSVP and engagement patterns." },
+      { title: "Digital Check-In", description: "QR code check-in with real-time attendance tracking." },
+      { title: "Post-Event Feedback", description: "AI collects feedback via WhatsApp with NPS scoring and sentiment analysis." },
+    ],
+    deploymentSteps: [
+      { title: "Set Up Your Event", description: "Create your event, configure RSVP forms, set timelines and AI call scripts." },
+      { title: "AI Manages Everything", description: "AI sends confirmations, schedules reminders, makes calls — automatically, 24/7." },
+      { title: "Maximise Attendance & Insights", description: "Real-time tracking during the event, automated post-event feedback campaigns." },
+    ],
+    workflow: [
+      { title: "RSVP Submitted", description: "Via form, website, or WhatsApp.", timing: "Instant" },
+      { title: "Confirmation Sent", description: "Personalised confirmation with event details and instructions.", timing: "< 5 sec" },
+      { title: "Reminder Sequence", description: "3-stage: 7 days, 2 days, day-of. Multi-channel.", timing: "Scheduled" },
+      { title: "AI Voice Call", description: "Personalised, human-sounding logistics call with confirmation request.", timing: "1–2 days prior" },
+      { title: "Day-Of Check-In", description: "QR check-in link sent. Attendance updated in real time.", timing: "Live" },
+      { title: "Attendance Prediction", description: "Dashboard updates throughout the day.", timing: "Real-time" },
+      { title: "Post-Event Feedback", description: "AI sends NPS and feedback request. Sentiment analysis run.", timing: "Auto" },
+    ],
+    comparison: [
+      { dimension: "RSVP Management", without: "Manual spreadsheet", with: "Fully automated" },
+      { dimension: "Reminder Delivery", without: "Manual, inconsistent", with: "3-stage automated" },
+      { dimension: "Attendance Rate", without: "55–60%", with: "80–82%" },
+      { dimension: "Guest Comms Staff", without: "Full-time coordinator", with: "Fully replaced by AI" },
+      { dimension: "Post-Event Feedback", without: "Low response", with: "Automated, high response" },
+      { dimension: "No-Show Rate", without: "High", with: "Reduced via AI calls" },
+    ],
+  },
+  {
     id: "salesdrive",
     name: "SalesDrive",
     category: "Sales & Lead Management",
@@ -191,49 +234,7 @@ export const solutions: Solution[] = [
       { dimension: "Support Costs", without: "High (staff-heavy)", with: "65% reduction" },
     ],
   },
-  {
-    id: "eventsync",
-    name: "EventSync",
-    category: "Booking & Scheduling",
-    fullTitle: "Enterprise Event Logistics & Autonomous Voice Agent Platform",
-    description:
-      "EventSync automates massive-scale event logistics. From point of registration, the AI orchestrates a multi-channel engagement pipeline — deploying autonomous voice calls and SMS to maximise attendance and execute post-event feedback analysis.",
-    metrics: [
-      { value: "40%", label: "Higher Attendance Rate" },
-      { value: "80%", label: "Automated Confirmations" },
-      { value: "60%", label: "Less Manual Work" },
-    ],
-    features: [
-      { title: "Smart RSVP Management", description: "Capture registrations from forms, websites, WhatsApp — with confirmation and waitlisting." },
-      { title: "AI Voice Calling", description: "AI makes personalised voice calls with reminders and logistics — sounding human." },
-      { title: "Multi-Channel Reminders", description: "Automated reminders via WhatsApp, SMS, and email — timed to reduce no-shows." },
-      { title: "Attendance Prediction", description: "AI predicts attendance from RSVP and engagement patterns." },
-      { title: "Digital Check-In", description: "QR code check-in with real-time attendance tracking." },
-      { title: "Post-Event Feedback", description: "AI collects feedback via WhatsApp with NPS scoring and sentiment analysis." },
-    ],
-    deploymentSteps: [
-      { title: "Set Up Your Event", description: "Create your event, configure RSVP forms, set timelines and AI call scripts." },
-      { title: "AI Manages Everything", description: "AI sends confirmations, schedules reminders, makes calls — automatically, 24/7." },
-      { title: "Maximise Attendance & Insights", description: "Real-time tracking during the event, automated post-event feedback campaigns." },
-    ],
-    workflow: [
-      { title: "RSVP Submitted", description: "Via form, website, or WhatsApp.", timing: "Instant" },
-      { title: "Confirmation Sent", description: "Personalised confirmation with event details and instructions.", timing: "< 5 sec" },
-      { title: "Reminder Sequence", description: "3-stage: 7 days, 2 days, day-of. Multi-channel.", timing: "Scheduled" },
-      { title: "AI Voice Call", description: "Personalised, human-sounding logistics call with confirmation request.", timing: "1–2 days prior" },
-      { title: "Day-Of Check-In", description: "QR check-in link sent. Attendance updated in real time.", timing: "Live" },
-      { title: "Attendance Prediction", description: "Dashboard updates throughout the day.", timing: "Real-time" },
-      { title: "Post-Event Feedback", description: "AI sends NPS and feedback request. Sentiment analysis run.", timing: "Auto" },
-    ],
-    comparison: [
-      { dimension: "RSVP Management", without: "Manual spreadsheet", with: "Fully automated" },
-      { dimension: "Reminder Delivery", without: "Manual, inconsistent", with: "3-stage automated" },
-      { dimension: "Attendance Rate", without: "55–60%", with: "80–82%" },
-      { dimension: "Guest Comms Staff", without: "Full-time coordinator", with: "Fully replaced by AI" },
-      { dimension: "Post-Event Feedback", without: "Low response", with: "Automated, high response" },
-      { dimension: "No-Show Rate", without: "High", with: "Reduced via AI calls" },
-    ],
-  },
+
   {
     id: "contentpilot",
     name: "ContentPilot",

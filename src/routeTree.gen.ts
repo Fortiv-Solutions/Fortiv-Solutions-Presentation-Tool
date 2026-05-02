@@ -16,6 +16,7 @@ import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as SolutionsSolutionIdRouteImport } from './routes/solutions.$solutionId'
 import { Route as PresentSolutionIdRouteImport } from './routes/present.$solutionId'
+import { Route as PresentIndustryIndustryIdRouteImport } from './routes/present-industry.$industryId'
 import { Route as IndustriesIndustryIdRouteImport } from './routes/industries.$industryId'
 
 const SolutionsRoute = SolutionsRouteImport.update({
@@ -53,6 +54,12 @@ const PresentSolutionIdRoute = PresentSolutionIdRouteImport.update({
   path: '/present/$solutionId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PresentIndustryIndustryIdRoute =
+  PresentIndustryIndustryIdRouteImport.update({
+    id: '/present-industry/$industryId',
+    path: '/present-industry/$industryId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndustriesIndustryIdRoute = IndustriesIndustryIdRouteImport.update({
   id: '/$industryId',
   path: '/$industryId',
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRouteWithChildren
   '/solutions': typeof SolutionsRouteWithChildren
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/present-industry/$industryId': typeof PresentIndustryIndustryIdRoute
   '/present/$solutionId': typeof PresentSolutionIdRoute
   '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -72,6 +80,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/present-industry/$industryId': typeof PresentIndustryIndustryIdRoute
   '/present/$solutionId': typeof PresentSolutionIdRoute
   '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
   '/industries': typeof IndustriesIndexRoute
@@ -83,6 +92,7 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRouteWithChildren
   '/solutions': typeof SolutionsRouteWithChildren
   '/industries/$industryId': typeof IndustriesIndustryIdRoute
+  '/present-industry/$industryId': typeof PresentIndustryIndustryIdRoute
   '/present/$solutionId': typeof PresentSolutionIdRoute
   '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
   '/industries/': typeof IndustriesIndexRoute
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/solutions'
     | '/industries/$industryId'
+    | '/present-industry/$industryId'
     | '/present/$solutionId'
     | '/solutions/$solutionId'
     | '/industries/'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/industries/$industryId'
+    | '/present-industry/$industryId'
     | '/present/$solutionId'
     | '/solutions/$solutionId'
     | '/industries'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/solutions'
     | '/industries/$industryId'
+    | '/present-industry/$industryId'
     | '/present/$solutionId'
     | '/solutions/$solutionId'
     | '/industries/'
@@ -123,6 +136,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   IndustriesRoute: typeof IndustriesRouteWithChildren
   SolutionsRoute: typeof SolutionsRouteWithChildren
+  PresentIndustryIndustryIdRoute: typeof PresentIndustryIndustryIdRoute
   PresentSolutionIdRoute: typeof PresentSolutionIdRoute
 }
 
@@ -177,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PresentSolutionIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/present-industry/$industryId': {
+      id: '/present-industry/$industryId'
+      path: '/present-industry/$industryId'
+      fullPath: '/present-industry/$industryId'
+      preLoaderRoute: typeof PresentIndustryIndustryIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries/$industryId': {
       id: '/industries/$industryId'
       path: '/$industryId'
@@ -219,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   IndustriesRoute: IndustriesRouteWithChildren,
   SolutionsRoute: SolutionsRouteWithChildren,
+  PresentIndustryIndustryIdRoute: PresentIndustryIndustryIdRoute,
   PresentSolutionIdRoute: PresentSolutionIdRoute,
 }
 export const routeTree = rootRouteImport
