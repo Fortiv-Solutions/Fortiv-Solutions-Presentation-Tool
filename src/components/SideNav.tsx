@@ -1,8 +1,10 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { FortivLogo } from "./FortivLogo";
 import { solutions, industries } from "@/lib/content";
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight, MonitorPlay } from "lucide-react";
 import * as HoverCard from "@radix-ui/react-hover-card";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { HomeScrollSections } from "@/components/welcome/HomeScrollSections";
 
 export function SideNav() {
   const path = useRouterState({ select: (s) => s.location.pathname });
@@ -12,10 +14,28 @@ export function SideNav() {
 
   return (
     <aside className="sticky top-0 hidden h-screen w-64 flex-col border-r border-hairline/60 bg-surface/30 backdrop-blur-xl md:flex">
-      <div className="flex shrink-0 items-center px-6 py-7 border-b border-hairline/30">
+      {/* Logo Header — its own sealed row */}
+      <div className="flex shrink-0 items-center px-6 py-5 border-b border-hairline/30">
         <Link to="/" className="flex items-center transition-transform duration-300 hover:opacity-80">
           <FortivLogo className="h-10 w-auto object-contain" />
         </Link>
+      </div>
+
+      {/* Present Button — its own row between logo and nav */}
+      <div className="shrink-0 px-4 py-4 border-b border-hairline/30">
+        <Dialog>
+          <DialogTrigger asChild>
+            <button className="group flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-glow transition-all hover:brightness-110 active:scale-[0.98]">
+              <MonitorPlay className="h-4 w-4 transition-transform group-hover:scale-110" />
+              Present
+            </button>
+          </DialogTrigger>
+          <DialogContent className="max-w-none w-screen h-screen p-0 m-0 border-none rounded-none sm:rounded-none overflow-hidden bg-background">
+            <div className="h-screen overflow-y-auto">
+              <HomeScrollSections />
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <div className="flex flex-1 flex-col justify-between overflow-y-auto px-4 py-6">
