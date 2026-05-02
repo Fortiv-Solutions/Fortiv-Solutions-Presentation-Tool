@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { solutions } from "@/lib/content";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 
-export const Route = createFileRoute("/solutions")({
+export const Route = createFileRoute("/solutions/")({
   head: () => ({
     meta: [
       { title: "Solutions — Fortiv Solutions" },
